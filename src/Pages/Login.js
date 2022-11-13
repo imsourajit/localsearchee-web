@@ -10,6 +10,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import {useDispatch} from "react-redux";
+import {authenticate} from "../Store/UserActions";
+import {useNavigate} from "react-router-dom";
+// eslint-disable-next-line import/named
 
 
 const theme = createTheme();
@@ -19,6 +23,9 @@ export default function Login() {
 
   const [errorText, setErrorText] = React.useState("");
 
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate()
 
 
   const handleSubmit = (event) => {
@@ -38,13 +45,15 @@ export default function Login() {
       return;
     }
 
-    //
-    //
+    dispatch(authenticate({email, password}, (res)=>{
 
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+      if(res?.data?.length) {
+        navigate("/dashboard")
+
+      }
+
+    }, err => console.log(err)))
+
   };
 
   return (
@@ -105,18 +114,7 @@ export default function Login() {
             >
                 Sign In
             </Button>
-            {/*<Grid container>*/}
-            {/*  <Grid item xs>*/}
-            {/*    <Link href="#" variant="body2">*/}
-            {/*        Forgot password?*/}
-            {/*    </Link>*/}
-            {/*  </Grid>*/}
-            {/*  <Grid item>*/}
-            {/*    <Link href="#" variant="body2">*/}
-            {/*      {"Don't have an account? Sign Up"}*/}
-            {/*    </Link>*/}
-            {/*  </Grid>*/}
-            {/*</Grid>*/}
+
           </Box>
         </Box>
         {/*<Copyright sx={{ mt: 8, mb: 4 }} />*/}

@@ -1,0 +1,50 @@
+.container {
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    min-height: 100vh;
+}
+
+.left-container {
+    background-color: white;
+    margin: 90px;
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    border-radius: 2%;
+    /*justify-content: center;*/
+    min-height: 60vh;
+    /*align-self: center;*/
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 5% 5% 5%;
+}
+
+.header-title {
+    color: cornflowerblue;
+    /*margin: 13% 0%;*/
+}
+
+.md-grid-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forget-password-txt {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.social-row-input {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+}
+
+.social-icon {
+    margin: 5px;
+}
