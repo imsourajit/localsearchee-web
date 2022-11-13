@@ -15,11 +15,12 @@ import {useDispatch} from "react-redux";
 import Box from "@mui/material/Box";
 import {Facebook, Instagram, Twitter, WhatsApp} from "@mui/icons-material";
 import {useNavigate} from "react-router-dom";
+import {registerUser} from "../Store/UserActions";
 
 const SignupPage = () => {
   const [isPromoter, setPromoter] = React.useState(false)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onSubmitBtnClick = event => {
@@ -28,7 +29,6 @@ const SignupPage = () => {
     event.preventDefault();
 
     const form = document.getElementById("form");
-    const formData = new FormData(form);
 
 
     const params = {
@@ -39,7 +39,7 @@ const SignupPage = () => {
       FullName:  event.target[2].value ?? "",
       PhoneNumber: document.getElementById("phoneNumber").value ?? "",
       IsPhoneVerified: false,
-      Place: document.getElementById("place") ?? "",
+      Place: document.getElementById("place").value ?? "",
       Pincode:event.target[6].value ?? "",
       ServiceType: document.getElementById("service").value ?? "",
       CategoryName:event.target[8].value ?? "",
@@ -54,16 +54,15 @@ const SignupPage = () => {
       UserType: isPromoter ? "PROMOTER" : "BUSINESS",
       creationTime: new Date().getTime()}
 
-
-
+    console.log("params", params)
 
     dispatch(registerUser(params, res=> {
       if(res?.data?.length) {
-        navigate("/phoneverification/7406151144")
+        navigate(`/phoneverification/${params.PhoneNumber}`)
       }
 
     }, err => {
-
+      console.log(err)
     }))
 
 
