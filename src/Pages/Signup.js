@@ -14,7 +14,6 @@ import "./SignupPage.css";
 import {useDispatch} from "react-redux";
 import Box from "@mui/material/Box";
 import {Facebook, Instagram, Twitter, WhatsApp} from "@mui/icons-material";
-import {registerUser} from "../Store/UserActions";
 import {useNavigate} from "react-router-dom";
 
 const SignupPage = () => {
@@ -33,27 +32,28 @@ const SignupPage = () => {
 
 
     const params = {
-      email : event.target[4].value ?? "",
+      email : document.getElementById("email").value ?? "",
       password: "localsearchee",
       BusinessName: event.target[0].value ?? "",
-      BusinessAddress: event.target[1].value ?? "",
+      BusinessAddress: document.getElementById("bAddr").value ?? "",
       FullName:  event.target[2].value ?? "",
-      PhoneNumber: event.target[3].value ?? "",
+      PhoneNumber: document.getElementById("phoneNumber").value ?? "",
       IsPhoneVerified: false,
-      Place:event.target[5].value ?? "",
+      Place: document.getElementById("place") ?? "",
       Pincode:event.target[6].value ?? "",
-      ServiceType:event.target[7].value ?? "",
+      ServiceType: document.getElementById("service").value ?? "",
       CategoryName:event.target[8].value ?? "",
-      gstin:event.target[9].value ?? "",
+      gstin:document.getElementById("gstin").value ?? "",
       FacebookUrl:event.target[10].value ?? "",
-      TwitterUrl:event.target[11].value ?? "",
+      TwitterUrl:document.getElementById("turlc").value ?? "",
       InstagramUrl: event.target[12].value ?? "",
-      WhatsAppUrl:event.target[13].value ?? "",
+      WhatsAppUrl:document.getElementById("wurl").value ?? "",
       Website:event.target[14].value ?? "",
-      ReferralCode:event.target[15].value ?? "",
+      ReferralCode:document.getElementById("refcode").value ?? "",
       IsEmailVerified:false,
       UserType: isPromoter ? "PROMOTER" : "BUSINESS",
       creationTime: new Date().getTime()}
+
 
 
 
@@ -133,7 +133,7 @@ const SignupPage = () => {
                   id="email"
                   label="email"
                   inputProps={{
-                    type: "phone"
+                    type: "email"
                   }}
                 />
               </FormControl>
@@ -141,7 +141,7 @@ const SignupPage = () => {
               <FormControl fullWidth className="form-element" margin={"dense"}>
                 <InputLabel htmlFor="component-outlined">Place</InputLabel>
                 <OutlinedInput
-                  id="placename"
+                  id="place"
                   label="Place"
                   inputProps={{
                     type: "text"

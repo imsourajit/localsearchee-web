@@ -55,3 +55,30 @@ export const validateOtp = (params, onSuccess, onFailure) => dispatch =>
     onSuccess,
     onFailure,
   );
+
+
+
+export const getAllUsers = (params, onSuccess, onFailure) => dispatch =>
+  ApiManager.apiCall(
+    dispatch,
+    "GET",
+    "ALL_USERS",
+    "",
+    "/getAllUsers",
+    params,
+    onSuccess,
+    onFailure,
+  );
+
+
+export const searchQuery = (params, onSuccess, onFailure) => dispatch =>
+  ApiManager.apiCall(
+    dispatch,
+    "GET",
+    "ALL_USERS",
+    "",
+    "/search",
+    params,
+    onSuccess,
+    onFailure,
+  );

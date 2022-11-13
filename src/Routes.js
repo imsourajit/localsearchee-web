@@ -6,6 +6,7 @@ import Login from "./Pages/Login";
 import SignupPage from "./Pages/Signup";
 import PhoneVerification from "./Pages/PhoneVerification";
 import EmailVerification from "./Pages/EmailVerification";
+import Userslist from "./Pages/Userslist";
 
 const CustomRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const CustomRoutes = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/phoneverification/:phoneNumber" element={<PhoneVerification />} />
         <Route path="/emailverification" element={<EmailVerification />} />
+        <Route path="/users" element={<Userslist />} />
       </Routes>
     </BrowserRouter>
   );
